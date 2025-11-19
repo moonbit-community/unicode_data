@@ -13,7 +13,11 @@ pub struct RawEmitter {
 
 impl RawEmitter {
     pub fn new() -> RawEmitter {
-        RawEmitter { file: String::new(), bytes_used: 0, desc: String::new() }
+        RawEmitter {
+            file: String::new(),
+            bytes_used: 0,
+            desc: String::new(),
+        }
     }
 
     fn blank_line(&mut self) {
@@ -42,8 +46,12 @@ impl RawEmitter {
         // Ensure that there's a zero word in the dataset, used for padding and
         // such.
         words.push(0);
-        let unique_words =
-            words.iter().cloned().collect::<BTreeSet<_>>().into_iter().collect::<Vec<_>>();
+        let unique_words = words
+            .iter()
+            .cloned()
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect::<Vec<_>>();
         if unique_words.len() > u8::MAX as usize {
             return Err(format!("cannot pack {} into 8 bits", unique_words.len()));
         }
@@ -66,7 +74,12 @@ impl RawEmitter {
                 best = Some((length, temp.bytes_used));
             }
         }
-        self.emit_chunk_map(word_indices[&0], &compressed_words, best.unwrap().0, postfix);
+        self.emit_chunk_map(
+            word_indices[&0],
+            &compressed_words,
+            best.unwrap().0,
+            postfix,
+        );
 
         struct Bits(u64);
         impl fmt::Debug for Bits {
@@ -97,7 +110,11 @@ impl RawEmitter {
 
         writeln!(&mut self.file, "pub fn is_{postfix}(c : Char) -> Bool {{").unwrap();
         if first_code_point > 0x7f {
-            writeln!(&mut self.file, "    c.to_int() >= {first_code_point:#04x} &&").unwrap();
+            writeln!(
+                &mut self.file,
+                "    c.to_int() >= {first_code_point:#04x} &&"
+            )
+            .unwrap();
         }
         writeln!(&mut self.file, "    bitset_search(").unwrap();
         writeln!(&mut self.file, "        c.to_int(),").unwrap();
@@ -111,7 +128,13 @@ impl RawEmitter {
         Ok(())
     }
 
-    fn emit_chunk_map(&mut self, zero_at: u8, compressed_words: &[u8], chunk_length: usize, postfix : &str) {
+    fn emit_chunk_map(
+        &mut self,
+        zero_at: u8,
+        compressed_words: &[u8],
+        chunk_length: usize,
+        postfix: &str,
+    ) {
         let mut compressed_words = compressed_words.to_vec();
         for _ in 0..(chunk_length - (compressed_words.len() % chunk_length)) {
             // pad out bitset index with zero words so we have all chunks of
@@ -123,8 +146,11 @@ impl RawEmitter {
         for chunk in compressed_words.chunks(chunk_length) {
             chunks.insert(chunk);
         }
-        let chunk_map =
-            chunks.iter().enumerate().map(|(idx, &chunk)| (chunk, idx)).collect::<HashMap<_, _>>();
+        let chunk_map = chunks
+            .iter()
+            .enumerate()
+            .map(|(idx, &chunk)| (chunk, idx))
+            .collect::<HashMap<_, _>>();
         let mut chunk_indices = Vec::new();
         for chunk in compressed_words.chunks(chunk_length) {
             chunk_indices.push(chunk_map[chunk]);
@@ -147,14 +173,14 @@ impl RawEmitter {
     }
 }
 
-pub fn emit_codepoints(emitter: &mut RawEmitter, ranges: &[Range<u32>], postfix : &str) {
+pub fn emit_codepoints(emitter: &mut RawEmitter, ranges: &[Range<u32>], postfix: &str) {
     emitter.blank_line();
 
     let mut bitset = emitter.clone();
-    let bitset_ok = bitset.emit_bitset(&ranges, postfix).is_ok();
+    let bitset_ok = bitset.emit_bitset(ranges, postfix).is_ok();
 
     let mut skiplist = emitter.clone();
-    skiplist.emit_skiplist(&ranges, postfix);
+    skiplist.emit_skiplist(ranges, postfix);
 
     if bitset_ok && bitset.bytes_used <= skiplist.bytes_used {
         *emitter = bitset;
@@ -165,11 +191,11 @@ pub fn emit_codepoints(emitter: &mut RawEmitter, ranges: &[Range<u32>], postfix 
     }
 }
 
-pub fn emit_whitespace(emitter: &mut RawEmitter, ranges: &[Range<u32>], postfix : &str) {
+pub fn emit_whitespace(emitter: &mut RawEmitter, ranges: &[Range<u32>], postfix: &str) {
     emitter.blank_line();
 
     let mut cascading = emitter.clone();
-    cascading.emit_cascading_map(&ranges, postfix);
+    cascading.emit_cascading_map(ranges, postfix);
     *emitter = cascading;
     emitter.desc = String::from("cascading");
 }
@@ -205,7 +231,10 @@ impl Canonicalized {
                 // All possible distinct rotations
                 for rotation in 1..64 {
                     if a.rotate_right(rotation) == b {
-                        mappings.entry(b).or_default().push((a, Mapping::Rotate(rotation)));
+                        mappings
+                            .entry(b)
+                            .or_default()
+                            .push((a, Mapping::Rotate(rotation)));
                         // We're not interested in further mappings between a and b
                         continue 'b;
                     }
@@ -286,8 +315,10 @@ impl Canonicalized {
                 // no mappings to the `from` word; that's fine.
                 mappings.remove(from);
                 assert_eq!(
-                    unique_mapping
-                        .insert(*from, UniqueMapping::Canonicalized(canonicalized_words.len())),
+                    unique_mapping.insert(
+                        *from,
+                        UniqueMapping::Canonicalized(canonicalized_words.len())
+                    ),
                     None
                 );
                 canonicalized_words.push((canonical_words.len(), *how));
@@ -306,11 +337,9 @@ impl Canonicalized {
                     }
                 }
             }
-            assert!(
-                unique_mapping
-                    .insert(to, UniqueMapping::Canonical(canonical_words.len()))
-                    .is_none()
-            );
+            assert!(unique_mapping
+                .insert(to, UniqueMapping::Canonical(canonical_words.len()))
+                .is_none());
             canonical_words.push(to);
 
             // Remove the now-canonical word from other mappings, to ensure that
@@ -335,16 +364,15 @@ impl Canonicalized {
         // We'll probably always have some slack though so this loop will still
         // be needed.
         for &w in unique_words {
-            if !unique_mapping.contains_key(&w) {
-                assert!(
-                    unique_mapping
-                        .insert(w, UniqueMapping::Canonical(canonical_words.len()))
-                        .is_none()
-                );
+            if let std::collections::hash_map::Entry::Vacant(e) = unique_mapping.entry(w) {
+                e.insert(UniqueMapping::Canonical(canonical_words.len()));
                 canonical_words.push(w);
             }
         }
-        assert_eq!(canonicalized_words.len() + canonical_words.len(), unique_words.len());
+        assert_eq!(
+            canonicalized_words.len() + canonical_words.len(),
+            unique_words.len()
+        );
         assert_eq!(unique_mapping.len(), unique_words.len());
 
         let unique_mapping = unique_mapping
@@ -393,6 +421,10 @@ impl Canonicalized {
                 )
             })
             .collect::<Vec<(u8, u8)>>();
-        Canonicalized { unique_mapping, canonical_words, canonicalized_words }
+        Canonicalized {
+            unique_mapping,
+            canonical_words,
+            canonicalized_words,
+        }
     }
 }

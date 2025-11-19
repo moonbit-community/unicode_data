@@ -246,9 +246,9 @@ fn main() {
         let postfix = property.to_lowercase().to_string();
         let mut emitter = RawEmitter::new();
         if property == &"White_Space" {
-            emit_whitespace(&mut emitter, &ranges, &postfix);
+            emit_whitespace(&mut emitter, ranges, &postfix);
         } else {
-            emit_codepoints(&mut emitter, &ranges, &postfix);
+            emit_codepoints(&mut emitter, ranges, &postfix);
         }
 
         modules.push(emitter.file);
@@ -286,7 +286,7 @@ fn main() {
     for contents in modules {
         for line in contents.lines() {
             if !line.trim().is_empty() {
-                table_file.push_str(&line);
+                table_file.push_str(line);
             }
             table_file.push('\n');
         }
@@ -309,7 +309,7 @@ fn version() -> String {
     let start = readme.find(prefix).unwrap() + prefix.len();
     let end = readme.find(" of the Unicode Standard.").unwrap();
     let version =
-        readme[start..end].split('.').map(|v| v.parse::<u32>().expect(&v)).collect::<Vec<_>>();
+        readme[start..end].split('.').map(|v| v.parse::<u32>().expect(v)).collect::<Vec<_>>();
     let [major, minor, micro] = [version[0], version[1], version[2]];
 
     out.push_str(&format!("({major}, {minor}, {micro});\n"));

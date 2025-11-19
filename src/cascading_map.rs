@@ -21,7 +21,7 @@ impl RawEmitter {
 
         let points = ranges
             .iter()
-            .flat_map(|r| (r.start..r.end).into_iter().collect::<Vec<u32>>())
+            .flat_map(|r| (r.start..r.end).collect::<Vec<u32>>())
             .collect::<Vec<u32>>();
 
         println!("there are {} points", points.len());
@@ -32,7 +32,7 @@ impl RawEmitter {
             // assert that there is no whitespace over the 0x3000 range.
             assert!(point <= 0x3000, "the highest unicode whitespace value has changed");
             let high_bytes = point as usize >> 8;
-            let codepoints = codepoints_by_high_bytes.entry(high_bytes).or_insert_with(Vec::new);
+            let codepoints = codepoints_by_high_bytes.entry(high_bytes).or_default();
             codepoints.push(point);
         }
 
@@ -40,7 +40,7 @@ impl RawEmitter {
         let mut arms = Vec::<String>::new();
 
         let mut high_bytes: Vec<usize> =
-            codepoints_by_high_bytes.keys().map(|k| k.clone()).collect();
+            codepoints_by_high_bytes.keys().copied().collect();
         high_bytes.sort();
         for high_byte in high_bytes {
             let codepoints = codepoints_by_high_bytes.get_mut(&high_byte).unwrap();
