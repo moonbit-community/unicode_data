@@ -356,10 +356,10 @@ fn generate_tests(ranges: &[(&str, Vec<Range<u32>>)]) -> String {
                 is_false.push(ch_num);
             }
         }
-        s.push_str(&format!("    fn {}_true() -> Unit!Error {{\n", property.to_lowercase()));
+        s.push_str(&format!("    fn {}_true() -> Unit raise {{\n", property.to_lowercase()));
         generate_asserts(&mut s, property, &is_true, true);
         s.push_str("    }\n\n");
-        s.push_str(&format!("    fn {}_false() -> Unit!Error {{\n", property.to_lowercase()));
+        s.push_str(&format!("    fn {}_false() -> Unit raise {{\n", property.to_lowercase()));
         generate_asserts(&mut s, property, &is_false, false);
         s.push_str("    }\n\n");
         s.push_str(&format!("    {}_true();\n", property.to_lowercase()));

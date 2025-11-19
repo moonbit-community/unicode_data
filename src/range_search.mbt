@@ -4,7 +4,7 @@ fn bitset_search(
   chunk_idx_map : Bytes,
   bitset_chunk_idx : FixedArray[Bytes],
   bitset_canonical : FixedArray[UInt64],
-  bitset_canonicalized : FixedArray[(Byte, Byte)]
+  bitset_canonicalized : FixedArray[(Byte, Byte)],
 ) -> Bool {
   // let n = chunk_idx_map.length()
   // let n1 = bitset_chunk_idx.length()
@@ -45,12 +45,12 @@ fn bitset_search(
 }
 
 ///|
-priv type ShortOffsetRunHeader UInt
+priv struct ShortOffsetRunHeader(UInt)
 
 ///|
 fn ShortOffsetRunHeader::new(
   start_index~ : UInt,
-  prefix_sum~ : UInt
+  prefix_sum~ : UInt,
 ) -> ShortOffsetRunHeader {
   // start_index < (1 << 11)
   // prefix_sum <  (1 << 21)
@@ -58,19 +58,19 @@ fn ShortOffsetRunHeader::new(
 }
 
 ///|
-fn start_index(self : ShortOffsetRunHeader) -> Int {
-  (self._ >> 21).reinterpret_as_int()
+fn ShortOffsetRunHeader::start_index(self : ShortOffsetRunHeader) -> Int {
+  (self.0 >> 21).reinterpret_as_int()
 }
 
 ///|
-fn prefix_sum(self : ShortOffsetRunHeader) -> UInt {
-  self._ & ((1U << 21) - 1)
+fn ShortOffsetRunHeader::prefix_sum(self : ShortOffsetRunHeader) -> UInt {
+  self.0 & ((1U << 21) - 1)
 }
 
 ///|
 fn[T] binary_search_by(
   arr : FixedArray[T],
-  cmp : (T) -> Int
+  cmp : (T) -> Int,
 ) -> Result[Int, Int] {
   let len = arr.length()
   for i = 0, j = len; i < j; {
@@ -95,12 +95,12 @@ fn[T] binary_search_by(
 fn skip_search(
   needle : Char,
   short_offset_runs : FixedArray[ShortOffsetRunHeader],
-  offsets : Bytes
+  offsets : Bytes,
 ) -> Bool {
   let needle = needle.to_uint()
   let last_idx = match
     binary_search_by(short_offset_runs, fn(header) {
-      (header._ << 11).compare(needle << 11)
+      (header.0 << 11).compare(needle << 11)
     }) {
     Err(idx) => idx
     Ok(idx) => idx + 1

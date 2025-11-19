@@ -1,3 +1,4 @@
+// Generated using `moon info`, DON'T EDIT IT
 package "myfreess/unicode_data"
 
 // Values
@@ -26,6 +27,8 @@ fn to_lower(Char) -> (Char, Char, Char)
 fn to_upper(Char) -> (Char, Char, Char)
 
 let unicode_version : (Byte, Byte, Byte)
+
+// Errors
 
 // Types and methods
 

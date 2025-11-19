@@ -212,7 +212,7 @@ fn check(x: UInt, singletonuppers: FixedArray[(Byte, Byte)], singletonlowers: By
         let v = normal[i]
         let len = if (v & 0x80) != 0 {
             i += 1
-            ((v & 0x7f).to_uint() << 8 | normal[i].to_uint()).reinterpret_as_int()
+            (((v & 0x7f).to_uint() << 8) | normal[i].to_uint()).reinterpret_as_int()
         } else {
             v.to_int()
         };
