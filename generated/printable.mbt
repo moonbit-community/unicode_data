@@ -39,7 +39,7 @@ fn check(
     if x < 0 {
       break
     }
-    current = not(current)
+    current = !current
   }
   current
 }

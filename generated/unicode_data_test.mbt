@@ -1,7 +1,7 @@
 ///|
 #callsite(autofill(loc))
 fn ensure(cond : Bool, msg : String, loc~ : SourceLoc) -> Unit raise {
-  if not(cond) {
+  if !cond {
     fail(msg, loc~)
   }
 }

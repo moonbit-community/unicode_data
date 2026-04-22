@@ -220,7 +220,7 @@ fn check(x: UInt, singletonuppers: FixedArray[(Byte, Byte)], singletonlowers: By
         if x < 0 {
             break;
         }
-        current = not(current);
+        current = !current;
     }
     current
 }
