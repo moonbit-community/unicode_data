@@ -2,31 +2,31 @@
 package "myfreess/unicode_data"
 
 // Values
-fn is_alphabetic(Char) -> Bool
+pub fn is_alphabetic(Char) -> Bool
 
-fn is_case_ignorable(Char) -> Bool
+pub fn is_case_ignorable(Char) -> Bool
 
-fn is_cased(Char) -> Bool
+pub fn is_cased(Char) -> Bool
 
-fn is_cc(Char) -> Bool
+pub fn is_cc(Char) -> Bool
 
-fn is_grapheme_extend(Char) -> Bool
+pub fn is_grapheme_extend(Char) -> Bool
 
-fn is_lowercase(Char) -> Bool
+pub fn is_lowercase(Char) -> Bool
 
-fn is_n(Char) -> Bool
+pub fn is_n(Char) -> Bool
 
-fn is_printable(Char) -> Bool
+pub fn is_printable(Char) -> Bool
 
-fn is_uppercase(Char) -> Bool
+pub fn is_uppercase(Char) -> Bool
 
-fn is_white_space(Char) -> Bool
+pub fn is_white_space(Char) -> Bool
 
-fn to_lower(Char) -> (Char, Char, Char)
+pub fn to_lower(Char) -> (Char, Char, Char)
 
-fn to_upper(Char) -> (Char, Char, Char)
+pub fn to_upper(Char) -> (Char, Char, Char)
 
-let unicode_version : (Byte, Byte, Byte)
+pub let unicode_version : (Byte, Byte, Byte)
 
 // Errors
 
