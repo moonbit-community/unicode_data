@@ -1,3 +1,4 @@
 target
+_build/
 unicode-downloads
 generated/unicode_data.rs
