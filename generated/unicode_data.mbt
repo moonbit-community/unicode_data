@@ -84,7 +84,7 @@ fn[T] binary_search_by(
     } else {
       continue i, h
     }
-  } else {
+  } nobreak {
     if i < len && cmp(arr.unsafe_get(i)) == 0 {
       Ok(i)
     } else {
