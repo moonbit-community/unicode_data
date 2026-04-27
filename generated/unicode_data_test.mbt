@@ -279,7 +279,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 2185U..<2191U {
+    for chn in 2185U..<2192U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -777,8 +777,12 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    // charcode 3165
-    assert_true(is_alphabetic('ౝ'))
+    for chn in 3164U..<3166U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 3168U..<3172U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -845,7 +849,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 3293U..<3295U {
+    for chn in 3292U..<3295U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -1905,27 +1909,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42891U..<42958U {
+    for chn in 42891U..<42973U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 42960U..<42962U {
-      ensure(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    // charcode 42963
-    assert_true(is_alphabetic('ꟓ'))
-    for chn in 42965U..<42973U {
-      ensure(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    for chn in 42994U..<43014U {
+    for chn in 42993U..<43014U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -2547,6 +2537,12 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    for chn in 67904U..<67930U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 67968U..<68024U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -2693,14 +2689,18 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69314U..<69317U {
+    for chn in 69314U..<69320U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    // charcode 69372
-    assert_true(is_alphabetic('\u{10efc}'))
+    for chn in 69370U..<69373U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 69376U..<69405U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -3165,6 +3165,12 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    for chn in 72544U..<72552U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 72640U..<72673U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -3281,6 +3287,12 @@ test "unicode data" {
     }
     // charcode 73112
     assert_true(is_alphabetic('𑶘'))
+    for chn in 73136U..<73180U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 73440U..<73463U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -3421,6 +3433,18 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    for chn in 93856U..<93881U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93883U..<93908U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 93952U..<94027U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -3447,25 +3471,25 @@ test "unicode data" {
     }
     // charcode 94179
     assert_true(is_alphabetic('𖿣'))
-    for chn in 94192U..<94194U {
+    for chn in 94192U..<94199U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 94208U..<100344U {
+    for chn in 94208U..<101590U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 100352U..<101590U {
+    for chn in 101631U..<101663U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 101631U..<101641U {
+    for chn in 101760U..<101875U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -3801,6 +3825,24 @@ test "unicode data" {
     }
     // charcode 124400
     assert_true(is_alphabetic('𞗰'))
+    for chn in 124608U..<124639U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124640U..<124662U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124670U..<124672U {
+      ensure(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 124896U..<124903U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -3999,19 +4041,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 173824U..<177978U {
+    for chn in 173824U..<178206U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 177984U..<178206U {
-      ensure(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    for chn in 178208U..<183970U {
+    for chn in 178208U..<183982U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -4041,7 +4077,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 201552U..<205744U {
+    for chn in 201552U..<210042U {
       ensure(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -4302,7 +4338,7 @@ test "unicode data" {
     }
     // charcode 2184
     assert_false(is_alphabetic('࢈'))
-    for chn in 2191U..<2199U {
+    for chn in 2192U..<2199U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -4694,12 +4730,8 @@ test "unicode data" {
     }
     // charcode 3159
     assert_false(is_alphabetic('\u{c57}'))
-    for chn in 3163U..<3165U {
-      ensure_not(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
+    // charcode 3163
+    assert_false(is_alphabetic('\u{c5b}'))
     for chn in 3166U..<3168U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -4738,7 +4770,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 3287U..<3293U {
+    for chn in 3287U..<3292U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -5676,17 +5708,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42958U..<42960U {
-      ensure_not(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    // charcode 42962
-    assert_false(is_alphabetic('\u{a7d2}'))
-    // charcode 42964
-    assert_false(is_alphabetic('\u{a7d4}'))
-    for chn in 42973U..<42994U {
+    for chn in 42973U..<42993U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -6210,7 +6232,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 67898U..<67968U {
+    for chn in 67898U..<67904U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 67930U..<67968U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -6346,7 +6374,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69317U..<69372U {
+    for chn in 69320U..<69370U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -6796,7 +6824,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 72441U..<72640U {
+    for chn in 72441U..<72544U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 72552U..<72640U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -6872,7 +6906,13 @@ test "unicode data" {
     assert_false(is_alphabetic('\u{11d92}'))
     // charcode 73111
     assert_false(is_alphabetic('\u{11d97}'))
-    for chn in 73113U..<73440U {
+    for chn in 73113U..<73136U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 73180U..<73440U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7012,7 +7052,19 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 93824U..<93952U {
+    for chn in 93824U..<93856U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93881U..<93883U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93908U..<93952U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7044,13 +7096,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 94194U..<94208U {
-      ensure_not(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    for chn in 100344U..<100352U {
+    for chn in 94199U..<94208U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7062,7 +7108,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 101641U..<110576U {
+    for chn in 101663U..<101760U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 101875U..<110576U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7312,7 +7364,21 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 124401U..<124896U {
+    for chn in 124401U..<124608U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 124639
+    assert_false(is_alphabetic('\u{1e6df}'))
+    for chn in 124662U..<124670U {
+      ensure_not(
+        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124672U..<124896U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7468,19 +7534,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 177978U..<177984U {
-      ensure_not(
-        is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
     for chn in 178206U..<178208U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 183970U..<183984U {
+    for chn in 183982U..<183984U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7510,7 +7570,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 205744U..<1114111U {
+    for chn in 210042U..<1114111U {
       ensure_not(
         is_alphabetic(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -7520,6 +7580,7 @@ test "unicode data" {
 
   alphabetic_true()
   alphabetic_false()
+
   fn case_ignorable_true() -> Unit raise {
     // charcode 39
     assert_true(is_case_ignorable('\''))
@@ -8199,7 +8260,13 @@ test "unicode data" {
     assert_true(is_case_ignorable('\u{1a7f}'))
     // charcode 6823
     assert_true(is_case_ignorable('ᪧ'))
-    for chn in 6832U..<6863U {
+    for chn in 6832U..<6878U {
+      ensure(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 6880U..<6892U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -8513,7 +8580,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42994U..<42997U {
+    for chn in 42993U..<42997U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -8811,7 +8878,9 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69372U..<69376U {
+    // charcode 69317
+    assert_true(is_case_ignorable('\u{10ec5}'))
+    for chn in 69370U..<69376U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -9161,6 +9230,16 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    // charcode 72544
+    assert_true(is_case_ignorable('\u{11b60}'))
+    for chn in 72546U..<72549U {
+      ensure(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 72550
+    assert_true(is_case_ignorable('\u{11b66}'))
     for chn in 72752U..<72759U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -9231,6 +9310,8 @@ test "unicode data" {
     assert_true(is_case_ignorable('\u{11d95}'))
     // charcode 73111
     assert_true(is_case_ignorable('\u{11d97}'))
+    // charcode 73177
+    assert_true(is_case_ignorable('\u{11dd9}'))
     for chn in 73459U..<73461U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -9324,6 +9405,12 @@ test "unicode data" {
       )
     }
     for chn in 94179U..<94181U {
+      ensure(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 94194U..<94196U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -9493,6 +9580,20 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    // charcode 124643
+    assert_true(is_case_ignorable('\u{1e6e3}'))
+    // charcode 124646
+    assert_true(is_case_ignorable('\u{1e6e6}'))
+    for chn in 124654U..<124656U {
+      ensure(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 124661
+    assert_true(is_case_ignorable('\u{1e6f5}'))
+    // charcode 124671
+    assert_true(is_case_ignorable('\u{1e6ff}'))
     for chn in 125136U..<125143U {
       ensure(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -10404,7 +10505,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 6863U..<6912U {
+    for chn in 6878U..<6880U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 6892U..<6912U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -10752,7 +10859,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42891U..<42994U {
+    for chn in 42891U..<42993U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11164,7 +11271,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69293U..<69372U {
+    for chn in 69293U..<69317U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 69318U..<69370U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11562,7 +11675,17 @@ test "unicode data" {
     }
     // charcode 72343
     assert_false(is_case_ignorable('𑪗'))
-    for chn in 72346U..<72752U {
+    for chn in 72346U..<72544U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 72545
+    assert_false(is_case_ignorable('\u{11b61}'))
+    // charcode 72549
+    assert_false(is_case_ignorable('\u{11b65}'))
+    for chn in 72551U..<72752U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11620,7 +11743,13 @@ test "unicode data" {
     }
     // charcode 73110
     assert_false(is_case_ignorable('𑶖'))
-    for chn in 73112U..<73459U {
+    for chn in 73112U..<73177U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 73178U..<73459U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11726,7 +11855,13 @@ test "unicode data" {
     }
     // charcode 94178
     assert_false(is_case_ignorable('𖿢'))
-    for chn in 94181U..<110576U {
+    for chn in 94181U..<94194U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 94196U..<110576U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11878,7 +12013,37 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 124400U..<125136U {
+    for chn in 124400U..<124643U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124644U..<124646U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124647U..<124654U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124656U..<124661U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124662U..<124671U {
+      ensure_not(
+        is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124672U..<125136U {
       ensure_not(
         is_case_ignorable(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -11924,6 +12089,7 @@ test "unicode data" {
 
   case_ignorable_true()
   case_ignorable_false()
+
   fn cased_true() -> Unit raise {
     for chn in 65U..<91U {
       ensure(
@@ -11973,7 +12139,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 661U..<697U {
+    for chn in 662U..<697U {
       ensure(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -12347,27 +12513,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42896U..<42958U {
+    for chn in 42896U..<42973U {
       ensure(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
       )
     }
-    for chn in 42960U..<42962U {
-      ensure(
-        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    // charcode 42963
-    assert_true(is_cased('ꟓ'))
-    for chn in 42965U..<42973U {
-      ensure(
-        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    for chn in 42994U..<42999U {
+    for chn in 42993U..<42999U {
       ensure(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -12538,6 +12690,18 @@ test "unicode data" {
       )
     }
     for chn in 93760U..<93824U {
+      ensure(
+        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93856U..<93881U {
+      ensure(
+        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93883U..<93908U {
       ensure(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -12810,8 +12974,12 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    // charcode 660
-    assert_false(is_cased('ʔ'))
+    for chn in 660U..<662U {
+      ensure_not(
+        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 697U..<704U {
       ensure_not(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -13178,17 +13346,7 @@ test "unicode data" {
     }
     // charcode 42895
     assert_false(is_cased('ꞏ'))
-    for chn in 42958U..<42960U {
-      ensure_not(
-        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    // charcode 42962
-    assert_false(is_cased('\u{a7d2}'))
-    // charcode 42964
-    assert_false(is_cased('\u{a7d4}'))
-    for chn in 42973U..<42994U {
+    for chn in 42973U..<42993U {
       ensure_not(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -13330,7 +13488,19 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 93824U..<119808U {
+    for chn in 93824U..<93856U {
+      ensure_not(
+        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93881U..<93883U {
+      ensure_not(
+        is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93908U..<119808U {
       ensure_not(
         is_cased(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -13472,6 +13642,7 @@ test "unicode data" {
 
   cased_true()
   cased_false()
+
   fn cc_true() -> Unit raise {
     for chn in 0U..<32U {
       ensure(
@@ -13510,6 +13681,7 @@ test "unicode data" {
 
   cc_true()
   cc_false()
+
   fn grapheme_extend_true() -> Unit raise {
     for chn in 768U..<880U {
       ensure(
@@ -14177,7 +14349,13 @@ test "unicode data" {
     }
     // charcode 6783
     assert_true(is_grapheme_extend('\u{1a7f}'))
-    for chn in 6832U..<6863U {
+    for chn in 6832U..<6878U {
+      ensure(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 6880U..<6892U {
       ensure(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -14551,7 +14729,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69372U..<69376U {
+    for chn in 69370U..<69376U {
       ensure(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -14921,6 +15099,16 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    // charcode 72544
+    assert_true(is_grapheme_extend('\u{11b60}'))
+    for chn in 72546U..<72549U {
+      ensure(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 72550
+    assert_true(is_grapheme_extend('\u{11b66}'))
     for chn in 72752U..<72759U {
       ensure(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -15205,6 +15393,18 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    // charcode 124643
+    assert_true(is_grapheme_extend('\u{1e6e3}'))
+    // charcode 124646
+    assert_true(is_grapheme_extend('\u{1e6e6}'))
+    for chn in 124654U..<124656U {
+      ensure(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 124661
+    assert_true(is_grapheme_extend('\u{1e6f5}'))
     for chn in 125136U..<125143U {
       ensure(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -16008,7 +16208,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 6863U..<6912U {
+    for chn in 6878U..<6880U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 6892U..<6912U {
       ensure_not(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -16458,7 +16664,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 69293U..<69372U {
+    for chn in 69293U..<69370U {
       ensure_not(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -16884,7 +17090,17 @@ test "unicode data" {
     }
     // charcode 72343
     assert_false(is_grapheme_extend('𑪗'))
-    for chn in 72346U..<72752U {
+    for chn in 72346U..<72544U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    // charcode 72545
+    assert_false(is_grapheme_extend('\u{11b61}'))
+    // charcode 72549
+    assert_false(is_grapheme_extend('\u{11b65}'))
+    for chn in 72551U..<72752U {
       ensure_not(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -17172,7 +17388,31 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 124400U..<125136U {
+    for chn in 124400U..<124643U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124644U..<124646U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124647U..<124654U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124656U..<124661U {
+      ensure_not(
+        is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 124662U..<125136U {
       ensure_not(
         is_grapheme_extend(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -17206,6 +17446,7 @@ test "unicode data" {
 
   grapheme_extend_true()
   grapheme_extend_false()
+
   fn lowercase_true() -> Unit raise {
     for chn in 97U..<123U {
       ensure(
@@ -17565,7 +17806,7 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 661U..<697U {
+    for chn in 662U..<697U {
       ensure(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -18713,6 +18954,8 @@ test "unicode data" {
     assert_true(is_lowercase('ꟊ'))
     // charcode 42957
     assert_true(is_lowercase('ꟍ'))
+    // charcode 42959
+    assert_true(is_lowercase('\u{a7cf}'))
     // charcode 42961
     assert_true(is_lowercase('ꟑ'))
     // charcode 42963
@@ -18725,7 +18968,7 @@ test "unicode data" {
     assert_true(is_lowercase('ꟙ'))
     // charcode 42971
     assert_true(is_lowercase('ꟛ'))
-    for chn in 42994U..<42997U {
+    for chn in 42993U..<42997U {
       ensure(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -18850,6 +19093,12 @@ test "unicode data" {
       )
     }
     for chn in 93792U..<93824U {
+      ensure(
+        is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93883U..<93908U {
       ensure(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -19450,8 +19699,12 @@ test "unicode data" {
     assert_false(is_lowercase('Ɍ'))
     // charcode 590
     assert_false(is_lowercase('Ɏ'))
-    // charcode 660
-    assert_false(is_lowercase('ʔ'))
+    for chn in 660U..<662U {
+      ensure_not(
+        is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 697U..<704U {
       ensure_not(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -20662,12 +20915,10 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 42958U..<42961U {
-      ensure_not(
-        is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
+    // charcode 42958
+    assert_false(is_lowercase('\u{a7ce}'))
+    // charcode 42960
+    assert_false(is_lowercase('Ꟑ'))
     // charcode 42962
     assert_false(is_lowercase('\u{a7d2}'))
     // charcode 42964
@@ -20678,7 +20929,7 @@ test "unicode data" {
     assert_false(is_lowercase('Ꟙ'))
     // charcode 42970
     assert_false(is_lowercase('Ꟛ'))
-    for chn in 42972U..<42994U {
+    for chn in 42972U..<42993U {
       ensure_not(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -20790,7 +21041,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 93824U..<119834U {
+    for chn in 93824U..<93883U {
+      ensure_not(
+        is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93908U..<119834U {
       ensure_not(
         is_lowercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -20954,6 +21211,7 @@ test "unicode data" {
 
   lowercase_true()
   lowercase_false()
+
   fn n_true() -> Unit raise {
     for chn in 48U..<58U {
       ensure(
@@ -21627,6 +21885,12 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    for chn in 73184U..<73194U {
+      ensure(
+        is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
     for chn in 73552U..<73562U {
       ensure(
         is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
@@ -21682,6 +21946,12 @@ test "unicode data" {
       )
     }
     for chn in 93824U..<93847U {
+      ensure(
+        is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 94196U..<94199U {
       ensure(
         is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -22496,7 +22766,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 73130U..<73552U {
+    for chn in 73130U..<73184U {
+      ensure_not(
+        is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 73194U..<73552U {
       ensure_not(
         is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -22552,7 +22828,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 93847U..<118000U {
+    for chn in 93847U..<94196U {
+      ensure_not(
+        is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 94199U..<118000U {
       ensure_not(
         is_n(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -22658,6 +22940,7 @@ test "unicode data" {
 
   n_true()
   n_false()
+
   fn uppercase_true() -> Unit raise {
     for chn in 65U..<91U {
       ensure(
@@ -24111,8 +24394,14 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
+    // charcode 42958
+    assert_true(is_uppercase('\u{a7ce}'))
     // charcode 42960
     assert_true(is_uppercase('Ꟑ'))
+    // charcode 42962
+    assert_true(is_uppercase('\u{a7d2}'))
+    // charcode 42964
+    assert_true(is_uppercase('\u{a7d4}'))
     // charcode 42966
     assert_true(is_uppercase('Ꟗ'))
     // charcode 42968
@@ -24184,6 +24473,12 @@ test "unicode data" {
       )
     }
     for chn in 93760U..<93792U {
+      ensure(
+        is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93856U..<93881U {
       ensure(
         is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -25918,18 +26213,16 @@ test "unicode data" {
     assert_false(is_uppercase('ꟈ'))
     // charcode 42954
     assert_false(is_uppercase('ꟊ'))
-    for chn in 42957U..<42960U {
-      ensure_not(
-        is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
-    for chn in 42961U..<42966U {
-      ensure_not(
-        is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
-        "charcode = \{chn}",
-      )
-    }
+    // charcode 42957
+    assert_false(is_uppercase('ꟍ'))
+    // charcode 42959
+    assert_false(is_uppercase('\u{a7cf}'))
+    // charcode 42961
+    assert_false(is_uppercase('ꟑ'))
+    // charcode 42963
+    assert_false(is_uppercase('ꟓ'))
+    // charcode 42965
+    assert_false(is_uppercase('ꟕ'))
     // charcode 42967
     assert_false(is_uppercase('ꟗ'))
     // charcode 42969
@@ -26002,7 +26295,13 @@ test "unicode data" {
         "charcode = \{chn}",
       )
     }
-    for chn in 93792U..<119808U {
+    for chn in 93792U..<93856U {
+      ensure_not(
+        is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
+        "charcode = \{chn}",
+      )
+    }
+    for chn in 93881U..<119808U {
       ensure_not(
         is_uppercase(Int::unsafe_to_char(chn.reinterpret_as_int())),
         "charcode = \{chn}",
@@ -26194,6 +26493,7 @@ test "unicode data" {
 
   uppercase_true()
   uppercase_false()
+
   fn white_space_true() -> Unit raise {
     for chn in 9U..<14U {
       ensure(
