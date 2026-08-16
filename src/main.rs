@@ -339,10 +339,11 @@ fn generate_tests(ranges: &[(&str, Vec<Range<u32>>)]) -> String {
 
     s.push_str(include_str!("ensure.mbt"));
 
-    s.push_str("test \"unicode data\" {\n");
-
-
     for (property, ranges) in ranges {
+        s.push_str(&format!(
+            "///|\ntest \"unicode data: {}\" {{\n",
+            property.to_lowercase()
+        ));
         s.push('\n');
         let mut is_true = Vec::new();
         let mut is_false = Vec::new();
@@ -364,9 +365,9 @@ fn generate_tests(ranges: &[(&str, Vec<Range<u32>>)]) -> String {
         s.push_str("    }\n\n");
         s.push_str(&format!("    {}_true();\n", property.to_lowercase()));
         s.push_str(&format!("    {}_false();\n", property.to_lowercase()));
+        s.push_str("}\n");
     }
 
-    s.push_str("}\n");
     s
 }
 

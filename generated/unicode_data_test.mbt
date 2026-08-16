@@ -15,7 +15,7 @@ fn ensure_not(cond : Bool, msg : String, loc~ : SourceLoc) -> Unit raise {
 }
 
 ///|
-test "unicode data" {
+test "unicode data: alphabetic" {
   fn alphabetic_true() -> Unit raise {
     for chn in 65U..<91U {
       ensure(
@@ -7580,7 +7580,10 @@ test "unicode data" {
 
   alphabetic_true()
   alphabetic_false()
+}
 
+///|
+test "unicode data: case_ignorable" {
   fn case_ignorable_true() -> Unit raise {
     // charcode 39
     assert_true(is_case_ignorable('\''))
@@ -12089,7 +12092,10 @@ test "unicode data" {
 
   case_ignorable_true()
   case_ignorable_false()
+}
 
+///|
+test "unicode data: cased" {
   fn cased_true() -> Unit raise {
     for chn in 65U..<91U {
       ensure(
@@ -13642,7 +13648,10 @@ test "unicode data" {
 
   cased_true()
   cased_false()
+}
 
+///|
+test "unicode data: cc" {
   fn cc_true() -> Unit raise {
     for chn in 0U..<32U {
       ensure(
@@ -13681,7 +13690,10 @@ test "unicode data" {
 
   cc_true()
   cc_false()
+}
 
+///|
+test "unicode data: grapheme_extend" {
   fn grapheme_extend_true() -> Unit raise {
     for chn in 768U..<880U {
       ensure(
@@ -17446,7 +17458,10 @@ test "unicode data" {
 
   grapheme_extend_true()
   grapheme_extend_false()
+}
 
+///|
+test "unicode data: lowercase" {
   fn lowercase_true() -> Unit raise {
     for chn in 97U..<123U {
       ensure(
@@ -21211,7 +21226,10 @@ test "unicode data" {
 
   lowercase_true()
   lowercase_false()
+}
 
+///|
+test "unicode data: n" {
   fn n_true() -> Unit raise {
     for chn in 48U..<58U {
       ensure(
@@ -22940,7 +22958,10 @@ test "unicode data" {
 
   n_true()
   n_false()
+}
 
+///|
+test "unicode data: uppercase" {
   fn uppercase_true() -> Unit raise {
     for chn in 65U..<91U {
       ensure(
@@ -26493,7 +26514,10 @@ test "unicode data" {
 
   uppercase_true()
   uppercase_false()
+}
 
+///|
+test "unicode data: white_space" {
   fn white_space_true() -> Unit raise {
     for chn in 9U..<14U {
       ensure(
