@@ -35,4 +35,3 @@ pub let unicode_version : (Byte, Byte, Byte)
 // Type aliases
 
 // Traits
-

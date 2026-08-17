@@ -1,0 +1,15 @@
+name = "myfreess/unicode_data"
+
+version = "0.1.1"
+
+readme = "README.md"
+
+repository = "https://github.com/moonbit-community/unicode_data"
+
+license = "MIT"
+
+keywords = [ ]
+
+description = ""
+
+source = "generated"
