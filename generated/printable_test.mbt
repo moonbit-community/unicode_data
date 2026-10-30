@@ -1,4 +1,4 @@
 ///|
 test "space is printable" {
-  assert_true(is_printable(' '))
+  assert_true(@unicode_data.is_printable(' '))
 }

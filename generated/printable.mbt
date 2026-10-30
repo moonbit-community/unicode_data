@@ -3,7 +3,7 @@
 
 ///|
 fn check(
-  x : UInt,
+  x : UInt32,
   singletonuppers : FixedArray[(Byte, Byte)],
   singletonlowers : Bytes,
   normal : Bytes,

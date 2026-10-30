@@ -34,7 +34,7 @@ pub fn to_lower(c : Char) -> (Char, Char, Char) {
         )
       })
     })
-    .or_else(fn() { (c, '\u{0}', '\u{0}') })
+    .unwrap_or_else(fn() { (c, '\u{0}', '\u{0}') })
   }
 }
 
@@ -56,6 +56,6 @@ pub fn to_upper(c : Char) -> (Char, Char, Char) {
         )
       })
     })
-    .or_else(fn() { (c, '\u{0}', '\u{0}') })
+    .unwrap_or_else(fn() { (c, '\u{0}', '\u{0}') })
   }
 }
