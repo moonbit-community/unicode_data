@@ -376,7 +376,7 @@ fn generate_asserts(s: &mut String, property: &str, points: &[u32], truthy: bool
         if range.end == range.start + 1 {
             s.push_str(&format!("        // charcode {}\n", range.start));
             s.push_str(&format!(
-                "        {}(is_{}({:?}))\n",
+                "        {}(@unicode_data.is_{}({:?}))\n",
                 if truthy { "assert_true" } else { "assert_false" },
                 property.to_lowercase(),
                 std::char::from_u32(range.start).unwrap(),
@@ -384,7 +384,7 @@ fn generate_asserts(s: &mut String, property: &str, points: &[u32], truthy: bool
         } else {
             s.push_str(&format!("        for chn in {}U..<{}U {{\n", range.start, range.end));
             s.push_str(&format!(
-                "            {}(is_{}(Int::unsafe_to_char(chn.reinterpret_as_int())), {})\n",
+                "            {}(@unicode_data.is_{}(Int::unsafe_to_char(chn.reinterpret_as_int())), {})\n",
                 if truthy { "ensure" } else { "ensure_not" },
                 property.to_lowercase(),
                 "\"charcode = \\{chn}\""

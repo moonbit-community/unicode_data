@@ -2,7 +2,7 @@
 
 ///|
 fn bitset_search(
-  needle : Int,
+  needle : Int32,
   chunk_idx_map : Bytes,
   bitset_chunk_idx : FixedArray[Bytes],
   bitset_canonical : FixedArray[UInt64],
@@ -47,12 +47,12 @@ fn bitset_search(
 }
 
 ///|
-priv struct ShortOffsetRunHeader(UInt)
+priv struct ShortOffsetRunHeader(UInt32)
 
 ///|
 fn ShortOffsetRunHeader::new(
-  start_index~ : UInt,
-  prefix_sum~ : UInt,
+  start_index~ : UInt32,
+  prefix_sum~ : UInt32,
 ) -> ShortOffsetRunHeader {
   // start_index < (1 << 11)
   // prefix_sum <  (1 << 21)
@@ -60,20 +60,20 @@ fn ShortOffsetRunHeader::new(
 }
 
 ///|
-fn ShortOffsetRunHeader::start_index(self : ShortOffsetRunHeader) -> Int {
+fn ShortOffsetRunHeader::start_index(self : ShortOffsetRunHeader) -> Int32 {
   (self.0 >> 21).reinterpret_as_int()
 }
 
 ///|
-fn ShortOffsetRunHeader::prefix_sum(self : ShortOffsetRunHeader) -> UInt {
+fn ShortOffsetRunHeader::prefix_sum(self : ShortOffsetRunHeader) -> UInt32 {
   self.0 & ((1U << 21) - 1)
 }
 
 ///|
 fn[T] binary_search_by(
   arr : FixedArray[T],
-  cmp : (T) -> Int,
-) -> Result[Int, Int] {
+  cmp : (T) -> Int32,
+) -> Result[Int32, Int32] {
   let len = arr.length()
   for i = 0, j = len; i < j; {
     let h = i + (j - i) / 2
@@ -815,12 +815,12 @@ pub fn is_white_space(c : Char) -> Bool {
 }
 
 ///|
-const INDEX_MASK : UInt = 0x400000
+const INDEX_MASK : UInt32 = 0x400000
 
 ///|
 fn to_ascii_lower(c : Char) -> Char {
-  if c is ('A'..='Z') {
-    Int::unsafe_to_char(c.to_int() + 32)
+  if c is ('A'..<='Z') {
+    Int32::unsafe_to_char(c.to_int() + 32)
   } else {
     return c
   }
@@ -828,8 +828,8 @@ fn to_ascii_lower(c : Char) -> Char {
 
 ///|
 fn to_ascii_upper(c : Char) -> Char {
-  if c is ('a'..='z') {
-    Int::unsafe_to_char(c.to_int() - 32)
+  if c is ('a'..<='z') {
+    Int32::unsafe_to_char(c.to_int() - 32)
   } else {
     return c
   }
@@ -853,7 +853,7 @@ pub fn to_lower(c : Char) -> (Char, Char, Char) {
         )
       })
     })
-    .or_else(fn() { (c, '\u{0}', '\u{0}') })
+    .unwrap_or_else(fn() { (c, '\u{0}', '\u{0}') })
   }
 }
 
@@ -875,12 +875,12 @@ pub fn to_upper(c : Char) -> (Char, Char, Char) {
         )
       })
     })
-    .or_else(fn() { (c, '\u{0}', '\u{0}') })
+    .unwrap_or_else(fn() { (c, '\u{0}', '\u{0}') })
   }
 }
 
 ///|
-let lowercase_table : FixedArray[(Char, UInt)] = [
+let lowercase_table : FixedArray[(Char, UInt32)] = [
   ('\u{c0}', 224),
   ('\u{c1}', 225),
   ('\u{c2}', 226),
@@ -2351,7 +2351,7 @@ let lowercase_table_multi : FixedArray[(Char, Char, Char)] = [
 ]
 
 ///|
-let uppercase_table : FixedArray[(Char, UInt)] = [
+let uppercase_table : FixedArray[(Char, UInt32)] = [
   ('\u{b5}', 924),
   ('\u{df}', 4194304),
   ('\u{e0}', 192),
